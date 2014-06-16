@@ -1,0 +1,24 @@
+[ui]
+editor = vim
+username = Damián Silvani <munshkr@gmail.com>
+
+[extensions]
+color =
+pager =
+progress =
+hgext.fetch =
+hgext.bookmarks =
+hggit =
+
+[color]
+mode = auto
+status.modified = magenta bold
+status.added = green bold
+status.removed = red bold
+status.deleted = cyan bold
+status.unknown = blue bold
+status.ignored = black bold
+
+[pager]
+pager = LESS='FSRX' less
+ignore = version, help, update, serve, record

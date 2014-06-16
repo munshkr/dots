@@ -1,0 +1,29 @@
+$include /etc/inputrc
+
+# Be 8 bit clean.
+set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# mode in everything that uses readline
+#set editing-mode vi
+#set keymap vi
+
+# for vi mode
+$if mode=vi
+
+set keymap vi-command
+# these are for vi-command mode
+"\e[A": history-search-backward            # arrow up
+"\e[B": history-search-forward             # arrow down
+"\ep": yank-last-arg                       # bind to Alt-p
+Control-l: clear-screen
+
+set keymap vi-insert
+# these are for vi-insert mode
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\ep": yank-last-arg
+Control-l: clear-screen
+$endif

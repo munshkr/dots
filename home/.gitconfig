@@ -1,0 +1,43 @@
+[user]
+	name = Damián Silvani
+	email = munshkr@gmail.com
+[color]
+	ui = auto
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff --word-diff
+  dfs = diff --staged --word-diff
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	ls = ls-files
+  wc = whatchanged
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft = !legit graft \"$@\"
+[core]
+  editor = vim
+	excludesfile = /home/nox/.gitignore
+[pivotal]
+	api-token = a4df0aee4a9028b198cfd11253aaf846
+	full-name = Damián Silvani
+	only-mine = true
+[github]
+	user = munshkr
+	token = d030494bb61e8a881435c69876896c59
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 700x550+0+0
+	main-window-view = FileView
+	history-view-vpane-position = 435
+	file-view-vpane-position = 387
+[push]
+	default = upstream
