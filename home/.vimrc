@@ -26,6 +26,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jpalardy/vim-slime'
+Plugin 'bling/vim-airline'
 
 " ruby
 Plugin 'vim-ruby/vim-ruby'
@@ -102,3 +103,6 @@ let g:sclangTerm="urxvt -hold -e"
 
 let g:slime_target="screen"
 let g:slime_paste_file="/dev/shm/slime_paste"
+
+" Set status bar from vim-airline all the time
+set laststatus=2
