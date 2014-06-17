@@ -96,5 +96,9 @@ set number
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 let g:sclangTerm="urxvt -hold -e"
+
+let g:slime_target="screen"
+let g:slime_paste_file="/dev/shm/slime_paste"
