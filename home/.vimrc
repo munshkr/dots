@@ -13,20 +13,20 @@ Plugin 'gmarik/Vundle.vim'
 "
 " original repos on github
 Plugin 'tpope/vim-fugitive'
-
-" general
 Plugin 'flazz/vim-colorschemes'
 Plugin 'nathanaelkane/vim-indent-guides'
-"Plugin 'Lokaltog/vim-easymotion'
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-classpath'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jpalardy/vim-slime'
 Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
+" TODO to explore:
+"Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'guns/vim-clojure-static'
+"Plugin 'tpope/vim-fireplace'
+"Plugin 'tpope/vim-classpath'
 
 " ruby
 Plugin 'vim-ruby/vim-ruby'
