@@ -22,3 +22,6 @@ status.ignored = black bold
 [pager]
 pager = LESS='FSRX' less
 ignore = version, help, update, serve, record
+
+[alias]
+show = log --color=always -pr
