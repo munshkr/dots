@@ -20,7 +20,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jpalardy/vim-slime'
 Plugin 'bling/vim-airline'
-Plugin 'airblade/vim-gitgutter'
+Plugin 'sbl/scvim'
+"Plugin 'airblade/vim-gitgutter'
 " TODO to explore:
 "Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -99,10 +100,39 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
-let g:sclangTerm="urxvt -hold -e"
+"let g:sclangTerm="urxvt -e"
+let g:sclangTerm="gnome-terminal -x $SHELL -ic"
 
 let g:slime_target="screen"
 let g:slime_paste_file="/dev/shm/slime_paste"
 
 " Set status bar from vim-airline all the time
 set laststatus=2
+
+set hlsearch
+set mouse=a
+
+" X11 clipboard support using xsel
+" (http://vim.wikia.com/wiki/Accessing_the_system_clipboard#Simple_workaround_for_X_clipboards)
+"
+" Usage: select with visual block, :<,>cz
+"
+" Buffers:
+" - z: Clipboard
+" - x: Primary Selection
+" - v: Secondary Selection
+"
+command -range Cz :silent :<line1>,<line2>w !xsel -i -b
+command -range Cx :silent :<line1>,<line2>w !xsel -i -p
+command -range Cv :silent :<line1>,<line2>w !xsel -i -s
+cabbrev cv Cv
+cabbrev cz Cz
+cabbrev cx Cx
+
+command -range Pz :silent :r !xsel -o -b
+command -range Px :silent :r !xsel -o -p
+command -range Pv :silent :r !xsel -o -s
+
+cabbrev pz Pz
+cabbrev px Px
+cabbrev pv Pv
