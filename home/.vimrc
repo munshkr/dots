@@ -21,6 +21,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'jpalardy/vim-slime'
 Plugin 'bling/vim-airline'
 Plugin 'sbl/scvim'
+Plugin 'godlygeek/tabular'
 "Plugin 'airblade/vim-gitgutter'
 " TODO to explore:
 "Plugin 'Lokaltog/vim-easymotion'
@@ -111,12 +112,16 @@ set laststatus=2
 
 set hlsearch
 set mouse=a
+set columns=80
+
+" Highlight long lines (I like this better than using colorcolumn)
+highlight OverLength ctermbg=darkred ctermfg=gray guibg=#592929
+match OverLength /\%81v.\+/
 
 " X11 clipboard support using xsel
-" (http://vim.wikia.com/wiki/Accessing_the_system_clipboard#Simple_workaround_for_X_clipboards)
+" Source: http://vim.wikia.com/wiki/Accessing_the_system_clipboard#Simple_workaround_for_X_clipboards
 "
 " Usage: select with visual block, :<,>cz
-"
 " Buffers:
 " - z: Clipboard
 " - x: Primary Selection
@@ -136,3 +141,14 @@ command -range Pv :silent :r !xsel -o -s
 cabbrev pz Pz
 cabbrev px Px
 cabbrev pv Pv
+
+" Tabularize mappings
+" Source: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+"
+let mapleader=','
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
