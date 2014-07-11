@@ -22,6 +22,7 @@ Plugin 'jpalardy/vim-slime'
 Plugin 'bling/vim-airline'
 Plugin 'sbl/scvim'
 Plugin 'godlygeek/tabular'
+Plugin 'ConradIrwin/vim-bracketed-paste'
 "Plugin 'airblade/vim-gitgutter'
 " TODO to explore:
 "Plugin 'Lokaltog/vim-easymotion'
