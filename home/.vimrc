@@ -13,7 +13,8 @@ Plugin 'gmarik/Vundle.vim'
 "
 " original repos on github
 Plugin 'tpope/vim-fugitive'
-Plugin 'flazz/vim-colorschemes'
+"Plugin 'flazz/vim-colorschemes'
+Plugin 'sjl/badwolf'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -64,13 +65,15 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
 syntax on
+
 set t_Co=256
-colorscheme 256-jungle
+
+"colorscheme 256-jungle
 "colorscheme desert256
 "set background=dark
-hi Normal ctermbg=none
+"hi Normal ctermbg=none
+colorscheme badwolf
 
 set backspace=2
 set expandtab
@@ -118,6 +121,9 @@ set columns=80
 " Highlight long lines (I like this better than using colorcolumn)
 highlight OverLength ctermbg=darkred ctermfg=gray guibg=#592929
 match OverLength /\%81v.\+/
+
+highlight ExtraWhitespace ctermbg=darkred guibg=#592929
+match ExtraWhitespace /\s\+$/
 
 " X11 clipboard support using xsel
 " Source: http://vim.wikia.com/wiki/Accessing_the_system_clipboard#Simple_workaround_for_X_clipboards
