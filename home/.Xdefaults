@@ -12,7 +12,7 @@ URxvt.internalBorder:	3
 URxvt.cursorColor:	#657b83
 URxvt.scrollStyle:	rxvt
 URxvt.lineSpace:	0
-URxvt.cursorUnderline:	true
+URxvt.cursorUnderline:	false
 URxvt.scrollBar:	false
 URxvt.depth:	32
 URxvt.allow_bold:	true
