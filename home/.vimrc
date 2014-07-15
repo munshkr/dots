@@ -13,24 +13,18 @@ Plugin 'gmarik/Vundle.vim'
 "
 " original repos on github
 Plugin 'tpope/vim-fugitive'
-"Plugin 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'sjl/badwolf'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'jpalardy/vim-slime'
 Plugin 'bling/vim-airline'
 Plugin 'sbl/scvim'
 Plugin 'godlygeek/tabular'
 Plugin 'ConradIrwin/vim-bracketed-paste'
-"Plugin 'airblade/vim-gitgutter'
-" TODO to explore:
-"Plugin 'Lokaltog/vim-easymotion'
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Plugin 'guns/vim-clojure-static'
-"Plugin 'tpope/vim-fireplace'
-"Plugin 'tpope/vim-classpath'
+Plugin 'munshkr/vim-tidal'
+Plugin 'jpalardy/vim-slime'
 
 " ruby
 Plugin 'vim-ruby/vim-ruby'
@@ -71,9 +65,10 @@ set t_Co=256
 
 "colorscheme 256-jungle
 "colorscheme desert256
-"set background=dark
-"hi Normal ctermbg=none
 colorscheme badwolf
+
+set background=dark
+hi Normal ctermbg=none
 
 set backspace=2
 set expandtab
@@ -81,20 +76,27 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
-au BufRead,BufNewFile *.pde set filetype=arduino
-au BufRead,BufNewFile *.ino set filetype=arduino
+augroup arduino
+  autocmd!
+  autocmd BufRead,BufNewFile *.ino set filetype=arduino
+  " old extension .pde
+  autocmd BufRead,BufNewFile *.pde set filetype=arduino
+augroup END
 
 " C-specific indent rules
-autocmd FileType c setlocal expandtab
-autocmd FileType c setlocal shiftwidth=4
-autocmd FileType c setlocal softtabstop=4
-autocmd FileType c setlocal tabstop=4
+augroup c-group
+  autocmd!
 
-" C-specific indent rules
-autocmd FileType ino setlocal expandtab
-autocmd FileType ino setlocal shiftwidth=4
-autocmd FileType ino setlocal softtabstop=4
-autocmd FileType ino setlocal tabstop=4
+  autocmd FileType c setlocal expandtab
+  autocmd FileType c setlocal shiftwidth=2
+  autocmd FileType c setlocal softtabstop=2
+  autocmd FileType c setlocal tabstop=2
+
+  autocmd FileType arduino setlocal expandtab
+  autocmd FileType arduino setlocal shiftwidth=4
+  autocmd FileType arduino setlocal softtabstop=4
+  autocmd FileType arduino setlocal tabstop=4
+augroup END
 
 set number
 
@@ -108,15 +110,16 @@ let g:UltiSnipsEditSplit="vertical"
 "let g:sclangTerm="urxvt -e"
 let g:sclangTerm="gnome-terminal -x $SHELL -ic"
 
-let g:slime_target="screen"
-let g:slime_paste_file="/dev/shm/slime_paste"
-
 " Set status bar from vim-airline all the time
 set laststatus=2
+
+let mapleader="\\"
+let maplocalleader=","
 
 set hlsearch
 set mouse=a
 set columns=80
+set relativenumber
 
 " Highlight long lines (I like this better than using colorcolumn)
 highlight OverLength ctermbg=darkred ctermfg=gray guibg=#592929
@@ -134,16 +137,16 @@ match ExtraWhitespace /\s\+$/
 " - x: Primary Selection
 " - v: Secondary Selection
 "
-command -range Cz :silent :<line1>,<line2>w !xsel -i -b
-command -range Cx :silent :<line1>,<line2>w !xsel -i -p
-command -range Cv :silent :<line1>,<line2>w !xsel -i -s
+command! -range Cz :silent :<line1>,<line2>w !xsel -i -b
+command! -range Cx :silent :<line1>,<line2>w !xsel -i -p
+command! -range Cv :silent :<line1>,<line2>w !xsel -i -s
 cabbrev cv Cv
 cabbrev cz Cz
 cabbrev cx Cx
 
-command -range Pz :silent :r !xsel -o -b
-command -range Px :silent :r !xsel -o -p
-command -range Pv :silent :r !xsel -o -s
+command! -range Pz :silent :r !xsel -o -b
+command! -range Px :silent :r !xsel -o -p
+command! -range Pv :silent :r !xsel -o -s
 
 cabbrev pz Pz
 cabbrev px Px
@@ -152,10 +155,19 @@ cabbrev pv Pv
 " Tabularize mappings
 " Source: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 "
-let mapleader=','
 if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
+  nnoremap <leader>a= :Tabularize /=<CR>
+  vnoremap <leader>a= :Tabularize /=<CR>
+  nnoremap <leader>a: :Tabularize /:\zs<CR>
+  vnoremap <leader>a: :Tabularize /:\zs<CR>
 endif
+
+" Edit this .vimrc in a split
+nnoremap <leader>ev :tabe $MYVIMRC<cr>
+" Source this .vimrc file
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+nnoremap H 0
+nnoremap L $
+
+let g:slime_preserve_curpos=1
