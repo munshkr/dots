@@ -35,6 +35,7 @@ alias clip="xclip -selection clipboard"
 alias ..="cd .."
 
 alias git='hub'
+alias rmdbc="find . -name '* (*conflicted*' -exec rm {} \;"
 
 alias em="/usr/bin/emacsclient -ct"
 alias es="/usr/bin/emacs --daemon"
