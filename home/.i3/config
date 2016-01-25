@@ -27,7 +27,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -168,19 +168,23 @@ bindsym $mod+minus scratchpad show
 
 # Automatic assignment
 assign [class="Firefox"] 1
+#assign [class="google-chrome"] 1
 assign [class="Transmission"] 9
 assign [class="Audacious"] 10
 
 # Start-up apps
+#exec --no-startup-id compton -b
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id gnome-keyring-daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id qjackctl
 exec audacious
-exec firefox
+exec google-chrome
 
 # Set background color
-exec --no-startup-id xsetroot -solid "#001111"
+#exec --no-startup-id hsetroot -solid "#00111188"
+exec --no-startup-id setroot -solid "#00111188"
 
 # Custom floating windows
 for_window [class="Arandr"] floating enable
+for_window [class="SuperCollider"] floating enable, border normal

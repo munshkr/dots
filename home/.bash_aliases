@@ -35,11 +35,9 @@ alias clip="xclip -selection clipboard"
 alias ..="cd .."
 
 alias git='hub'
-alias rmdbc="find . -name '* (*conflicted*' -exec rm {} \;"
-
-alias em="/usr/bin/emacsclient -ct"
-alias es="/usr/bin/emacs --daemon"
+alias rmdbc="find . -name '* (*conflict(ed)|(iva))*' -exec rm {} \;"
 
 alias gsch2pcb="gsch2pcb --use-files -d ~/electronics/gEDA/components -d `pwd`"
 
-alias emacs="emacs -nw"
+alias em="emacs -nw"
+alias qem="emacs -nw -quick"

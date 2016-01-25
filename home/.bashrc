@@ -118,7 +118,7 @@ export LD_LIBRARY_PATH=/usr/local/lib
 export EDITOR=vim
 
 export GOPATH=$HOME/Dropbox/code/go
-export PATH=$PATH:$GOPATH/bin:/opt/elixir/bin
+export PATH=$PATH:$GOPATH/bin:/opt/elixir/bin:$HOME/.cabal/bin:$HOME/.tmuxifier/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/gbdk/emulators:$HOME/gbdk/tools/gbmb:$HOME/gbdk/tools/gbtd

@@ -2,6 +2,9 @@
 editor = vim
 username = Damián Silvani <munshkr@gmail.com>
 
+[alias]
+show = log --color=always -pr
+
 [extensions]
 color =
 pager =
@@ -9,6 +12,7 @@ progress =
 hgext.fetch =
 hgext.bookmarks =
 hggit =
+record =
 
 [color]
 mode = auto
@@ -22,6 +26,3 @@ status.ignored = black bold
 [pager]
 pager = LESS='FSRX' less
 ignore = version, help, update, serve, record
-
-[alias]
-show = log --color=always -pr
