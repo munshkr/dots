@@ -236,7 +236,7 @@
   (setq linum-format "%d "))
 
 ;; Cleanup file on save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Load theme
 (load-theme 'monokai t)
@@ -325,8 +325,7 @@
             (subword-mode)
 
             (setq
-             ;; tabs are tabs when I'm programming, unless specified
-             indent-tabs-mode t
+             indent-tabs-mode nil
              ;; also, ensure that tabs are 4 spc wide unless specified
              tab-width 4
 
@@ -415,12 +414,12 @@
    ;; c-backspace-function 'backward-delete-char
    ;; c-type lang specifics. want 4-space width tab tabs
    c-basic-offset 4
-   c-indent-tabs-mode t               ; tabs please (change t to nil for spaces)
+   c-indent-tabs-mode nil
    c-indent-level 4
    c-tab-always-indent t
    tab-width 4
    ;; use tabs, not spaces.
-   indent-tabs-mode t))
+   indent-tabs-mode nil))
 
 (add-hook 'c-initialization-hook
           (lambda ()
@@ -450,7 +449,7 @@
             (setq-local asm-comment-char ?\!)
             (setq-local tab-width 8)
             (setq-local tab-stop-list (number-sequence 8 120 8))
-            (setq-local indent-tabs-mode t)))
+            (setq-local indent-tabs-mode nil)))
 
 ;; C
 (autoload 'ac-c-headers "ac-c-headers")
@@ -474,3 +473,5 @@
 (require 'tidal)
 (require 'rivulet)
 ;(require 'extempore)
+
+(global-whitespace-cleanup-mode)
