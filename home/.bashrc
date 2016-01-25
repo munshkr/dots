@@ -113,9 +113,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export TERM=xterm-256color
+
 export LD_LIBRARY_PATH=/usr/local/lib
 
-export EDITOR=vim
+export EDITOR=em
 
 export GOPATH=$HOME/Dropbox/code/go
 export PATH=$PATH:$GOPATH/bin:/opt/elixir/bin:$HOME/.cabal/bin:$HOME/.tmuxifier/bin
