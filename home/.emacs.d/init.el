@@ -29,6 +29,7 @@
 (use-package 'extempore-mode)
 (use-package 'whitespace-cleanup-mode)
 (use-package 'markdown-mode)
+(use-package 'web-mode)
 
 ;; M-x customize-* settings location.
 ;; Create a custom.el file and set before using M-x customize, or else you
@@ -473,5 +474,16 @@
 (require 'tidal)
 (require 'rivulet)
 ;(require 'extempore)
+
+;; Web mode
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  )
+(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 (global-whitespace-cleanup-mode)
